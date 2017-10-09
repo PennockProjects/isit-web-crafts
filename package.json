@@ -1,11 +1,17 @@
 {
-  "name": "isit-web-crafts",
+  "name": "isit-web-crafts-pennock",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "test": "karma start",
     "start": "nodemon ./bin/www"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:PennockProjects/isit-web-crafts-pennock.git"
+  },
+  "author": "John Pennock",
+  "license": "MIT",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
