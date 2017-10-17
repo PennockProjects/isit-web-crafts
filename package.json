@@ -1,7 +1,6 @@
 {
   "name": "isit-web-crafts-pennock",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "test": "karma start",
     "start": "nodemon ./bin/www"
