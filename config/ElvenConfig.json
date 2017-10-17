@@ -1,6 +1,6 @@
 {
     "calvert": {
-        "base-dir": "/home/charlie/",
+        "base-dir": "/home/bcuser/",
         "bootswatch": "cosmo",
         "most-recent-date": "2017-08-14",
         "site-dirs": [
@@ -8,11 +8,11 @@
             "Git/CloudNotes/Isit320"
         ],
         "destination-dirs": [
-            "/home/charlie/Git/charliecalvert.github.io/books/CloudNotes/Isit320/",
-            "/var/www/html/"
+            "/home/bcuser/www/html/AllSite/",
+            "/home/charlie/Git/charliecalvert.github.io/books/CloudNotes/Isit320/"
         ],
         "destination-dirs-extra": [{
-            "base": "/var/www/html/",
+            "base": "/home/bcuser/www/html/",
             "extra": ""
         }, {
             "base": "/var/www/html/Assignments/",
