@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
+var isDebug = true;
+
 var isAuthenticated = function(request, response, next) {
     'use strict';
 
     // Passport added the this method to the request object.
     console.log('isAuthenticated called');
-    if (true || request.isAuthenticated()) {
+    if (isDebug || request.isAuthenticated()) {
         console.log('successfully authenticated');
         return next();
     }
