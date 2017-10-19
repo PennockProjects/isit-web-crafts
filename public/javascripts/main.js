@@ -1,7 +1,3 @@
-/**
- * Created by charlie on 5/16/16.
- */
-
 requirejs.config({
     baseUrl: '.',
     paths: {
@@ -16,13 +12,20 @@ requirejs.config({
         display: 'javascripts/tools/display',
         settings: 'javascripts/tools/settings',
         utilities: 'javascripts/tools/utilities',
-        reactBundle: 'javascripts/bundle'
+        reactBundle: 'javascripts/bundle',
+        tinyPubSub: 'javascripts/tools/tiny-pub-sub'
+    },
+    shim : {
+        "tinyPubSub" : {
+            deps : [ "jquery" ],
+            exports : "tinyPubSub"
+        }
     }
 });
 
 requirejs(['jquery'], function($) {
     'use strict';
-    requirejs(['bootstrap', 'control', 'reactBundle'], function(bootstrap, control, reactBundle) {
+    requirejs(['bootstrap', 'control', 'reactBundle', 'tinyPubSub'], function(bootstrap, control) {
         control();
         $('.navbar-nav li.trigger-collapse a').click(function(event) {
             $('.navbar-collapse').collapse('hide');
