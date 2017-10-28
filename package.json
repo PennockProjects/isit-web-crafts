@@ -3,9 +3,14 @@
   "version": "1.0.1",
   "scripts": {
     "test": "jest --coverage",
-    "testKarma": "karma start",
+    "karma-test": "karma start",
     "start": "nodemon ./bin/www",
     "buildDev": "node_modules/.bin/webpack"
+  },
+  "jest": {
+    "setupFiles": [
+      "./source/setup-jest.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -18,17 +23,17 @@
     "body-parser": "^1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "^3.1.0",
-    "express": "^4.16.1",
+    "express": "^4.16.2",
     "express-session": "^1.15.6",
     "isit-code-pennock": "^1.0.1",
-    "isit-site-tools-pennock": "^1.0.2",
-    "jade": "~1.11.0",
+    "isit-site-tools-pennock": "^1.0.3",
     "marked": "~0.3.6",
     "material-ui": "^0.19.4",
-    "mongoose": "^4.12.0",
+    "mongoose": "^4.12.4",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "pug": "^2.0.0-rc.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "serve-favicon": "^2.4.5",
@@ -53,12 +58,13 @@
     "jasmine-core": "~2.8.0",
     "jasmine-jquery": "~2.1.1",
     "jest": "^21.2.1",
+    "jquery": "^3.2.1",
     "jshint-stylish": "~2.2.1",
     "karma": "~1.7.1",
     "karma-jasmine": "~1.1.0",
     "karma-phantomjs-launcher": "~1.0.4",
     "karma-spec-reporter": "0.0.31",
     "react-test-renderer": "^16.0.0",
-    "webpack-dev-server": "^2.9.2"
+    "webpack-dev-server": "^2.9.3"
   }
 }
