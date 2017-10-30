@@ -8,6 +8,13 @@
     "buildDev": "node_modules/.bin/webpack"
   },
   "jest": {
+    "verbose": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "ElfDebugEnzyme.js",
+      "tiny-pub-sub.js",
+      "temp-poly-fills.js"
+    ],
     "setupFiles": [
       "./source/setup-jest.js"
     ]

@@ -18,7 +18,6 @@ class HomeButtons extends React.Component {
         $.publish('clientMakeHtml', {
             message : "The user wants to makeHtml."
         });
-        // alert("publishing...");
     }
 
 
@@ -26,7 +25,6 @@ class HomeButtons extends React.Component {
         $.publish('clientMakeImage', {
             message : "The user wants to makeImage."
         });
-        // alert("publishing...");
     }
 
     // onClick={that.makeHtml}>{that.state.makeHtml}</RaisedButton>
@@ -35,17 +33,17 @@ class HomeButtons extends React.Component {
         return <MuiThemeProvider>
             <div>
                 <h1>Home Page</h1>
-                <RaisedButton id="makeHtml"
+                <RaisedButton
+                    id="makeHtml"
                     style={buttonStyle}
                     primary={true}
-                    onClick={this.makeHtml}>
-                    {this.state.makeHtml}
+                    onClick={this.makeHtml}>{this.state.makeHtml}
                 </RaisedButton>
                 <RaisedButton
+                    id="makeImage"
                     style={buttonStyle}
                     primary={true}
-                    onClick={this.makeImage}>
-                    {this.state.makeImage}
+                    onClick={this.makeImage}>{this.state.makeImage}
                 </RaisedButton>
                 <p>Select a button.</p>
                 <p>This is a react component.</p>
