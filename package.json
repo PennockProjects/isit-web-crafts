@@ -2,10 +2,10 @@
   "name": "isit-web-crafts-pennock",
   "version": "1.0.1",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --watch",
     "karma-test": "karma start",
     "start": "nodemon ./bin/www",
-    "buildDev": "node_modules/.bin/webpack"
+    "buildDev": "node_modules/.bin/webpack --watch"
   },
   "jest": {
     "verbose": true,
@@ -45,7 +45,8 @@
     "react-dom": "^16.0.0",
     "serve-favicon": "^2.4.5",
     "sharp": "^0.18.4",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
