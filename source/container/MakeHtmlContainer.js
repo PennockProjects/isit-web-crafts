@@ -3,9 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MakeHtmlDropDowns from '../MakeHtmlDropDowns';
 import MakeHtmlHomeButton from '../MakeHtmlHomeButton';
 import MakeHtmlGenerateButton from '../MakeHtmlGenerateButton';
-
-const siteDirs = [];
-const destDirs = [];
+import PreObjectKeys from '../PreObjectKeys';
 
 
 class MakeHtmlContainer extends React.Component {
@@ -19,12 +17,21 @@ class MakeHtmlContainer extends React.Component {
             walk: 'Generate HTML',
             siteDir: 'unknown',
             destDir: 'unknown',
-            configSummary: [],
+            configSummary: {
+                baseDir: "unknown",
+                mostRecentDate: new Date(),
+                siteDirs: [],
+                destinationDirs: []
+            },
+            htmlFilesWritten:[],
+            generateHtmlResult: {},
+            isGenerated: false,
             value: 1
         };
 
         this.changeSite = this.changeSite.bind(this);
         this.changeDest = this.changeDest.bind(this);
+        this.changeConfigSummary = this.changeConfigSummary.bind(this);
         this.generateHtml = this.generateHtml.bind(this);
 
         this.loadConfig();
@@ -35,7 +42,7 @@ class MakeHtmlContainer extends React.Component {
         this.setState({
             value: changedSite.value,
             siteDir: changedSite.siteDir,
-            destDir: destDirs[changedSite.value].props.primaryText
+            destDir: this.state.configSummary.destinationDirs[changedSite.value]
         });
     }
 
@@ -43,15 +50,24 @@ class MakeHtmlContainer extends React.Component {
         console.log("MakeHtmlContainer changeDest");
         this.setState({
             value: changedDest.value,
-            siteDir: siteDirs[changedDest.value].props.primaryText,
+            siteDir: this.state.configSummary.siteDirs[changedDest.value],
             destDir: changedDest.destDir
         });
+    }
+
+    changeGenerateHtmlResult(generateHtmlResult) {
+        console.log("MakeHtmlContainer changeGenerateHtmlResult");
+        this.setState({
+            htmlFilesWritten: generateHtmlResult.htmlFilesWritten,
+            generateHtmlResult: generateHtmlResult,
+            isGenerated: true
+        })
     }
 
     generateHtml() {
         console.log("MakeHtmlContainer generateHtml");
         console.log(this.state.value);
-        console.log(siteDirs[this.state.value]);
+        console.log(this.state.configSummary.siteDirs[this.state.value]);
         //walking.runWalkReact('qSingle', this.state.siteDir, this.state.destDir);
         const query = '/makers/walk?siteDirsIndex=' + this.state.value;
         var that = this;
@@ -59,13 +75,22 @@ class MakeHtmlContainer extends React.Component {
             .then(function(response) {
                 return response.json();
             })
-            .then(function(configSummary) {
-                console.log(JSON.stringify(configSummary, null, 4));
+            .then(function(generateHtmlResult) {
+                console.log("MakeHtmlContainer generateHtml->success");
+                console.log(JSON.stringify(generateHtmlResult, null, 4));
                 // CALL that.setState to **state.configSummary** to configSummary.htmlFilesWritten
+                that.changeGenerateHtmlResult(generateHtmlResult);
             })
             .catch(function(ex) {
                 console.log('parsing failed', ex);
             });
+    }
+
+    changeConfigSummary(configSummary) {
+        console.log("MakeHtmlContainer changeConfigSummary");
+        this.setState({
+            configSummary: configSummary
+        })
     }
 
     /**
@@ -85,27 +110,16 @@ class MakeHtmlContainer extends React.Component {
             .then(function (configSummary) {
                 console.log("MakeHtmlContainer loadConfig...success");
                 console.log('parsed json', JSON.stringify(configSummary, null, 4));
-                var newSiteDirs = [];
-                var newDestDirs = [];
-
-                siteDirs.length = 0;
-                configSummary.siteDirs.forEach(function (dir, index) {
-                    const showDir = configSummary.baseDir + dir;
-                    siteDirs.push(<MenuItem value={index} key={index} primaryText={showDir} />);
-                });
-                configSummary.destinationDirs.forEach(function (dir, index) {
-                    const destDir = configSummary.baseDir + dir;
-                    destDirs.push(<MenuItem value={index} key={index} primaryText={destDir} />);
-                });
+                that.changeConfigSummary(configSummary);
             })
             .catch(function (ex) {
                 console.log('parsing failed', ex);
             });
     }
 
-    componentDidMount() {
-        console.log("MakeHtmlContainer componentDidMount");
-    }
+    // componentDidMount() {
+    //     console.log("MakeHtmlContainer componentDidMount");
+    // }
 
     render() {
         console.log("MakeHtmlContainer render");
@@ -115,13 +129,13 @@ class MakeHtmlContainer extends React.Component {
                 <MakeHtmlDropDowns
                     onChangeSite={this.changeSite}
                     onChangeDest={this.changeDest}
-                    siteDirs={siteDirs}
-                    destDirs={destDirs}
+                    configSummary={this.state.configSummary}
                     value={this.state.value}
                 />
                 <MakeHtmlGenerateButton
                     onClick={this.generateHtml}
                 />
+                <PreObjectKeys objectKeys={this.state.generateHtmlResult}/>
             </div>
         </MuiThemeProvider>;
     };

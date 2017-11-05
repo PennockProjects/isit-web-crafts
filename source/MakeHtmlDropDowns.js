@@ -17,7 +17,6 @@ class MakeHtmlDropDowns extends React.Component {
 
         this.handleSiteDir = this.handleSiteDir.bind(this);
         this.handleDestDir = this.handleDestDir.bind(this);
-
     }
 
     handleSiteDir(event, index, value) {
@@ -34,7 +33,18 @@ class MakeHtmlDropDowns extends React.Component {
         });
     }
 
+    renderMenuItems(directoryArray) {
+        let menuItemsArray = [];
+        for (let i = 0; i < directoryArray.length; i++) {
+            menuItemsArray.push(<MenuItem value={i} key={i} primaryText={directoryArray[i]} />);
+        }
+        return menuItemsArray;
+    }
+
     render() {
+        console.log("MakeHtmlDropDowns render");
+        console.log(this.props.configSummary);
+
         return <MuiThemeProvider>
             <div>
                 <DropDownMenu
@@ -43,7 +53,7 @@ class MakeHtmlDropDowns extends React.Component {
                     style={styles.customWidth}
                     autoWidth={true}
                 >
-                    {this.props.siteDirs}
+                    {this.renderMenuItems(this.props.configSummary.siteDirs)}
                 </DropDownMenu>
 
                 <DropDownMenu
@@ -52,7 +62,7 @@ class MakeHtmlDropDowns extends React.Component {
                     style={styles.customWidth}
                     autoWidth={true}
                 >
-                    {this.props.destDirs}
+                    {this.renderMenuItems(this.props.configSummary.destinationDirs)}
                 </DropDownMenu>
             </div>
         </MuiThemeProvider>

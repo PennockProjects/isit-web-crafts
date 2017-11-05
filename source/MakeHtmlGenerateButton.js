@@ -2,9 +2,6 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 
-const buttonStyle = {
-    margin: '10px 10px 10px 0'
-};
 
 class MakeHtmlGenerateButton extends React.Component {
     constructor(props) {
@@ -31,5 +28,9 @@ class MakeHtmlGenerateButton extends React.Component {
         </MuiThemeProvider>;
     };
 }
+
+const buttonStyle = {
+    margin: '10px 10px 10px 0'
+};
 
 export default MakeHtmlGenerateButton;
