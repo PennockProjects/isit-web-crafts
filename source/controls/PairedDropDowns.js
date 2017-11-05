@@ -10,24 +10,24 @@ const styles = {
     }
 };
 
-class MakeHtmlDropDowns extends React.Component {
+class PairedDropDowns extends React.Component {
 
     constructor(props) {
         super(props);
 
-        this.handleSiteDir = this.handleSiteDir.bind(this);
-        this.handleDestDir = this.handleDestDir.bind(this);
+        this.handleLeft = this.handleLeft.bind(this);
+        this.handleRight = this.handleRight.bind(this);
     }
 
-    handleSiteDir(event, index, value) {
-        this.props.onChangeSite({
+    handleLeft(event, index, value) {
+        this.props.onChangeLeft({
             value: value,
             siteDir: event.target.innerHTML,
         });
     }
 
-    handleDestDir(event, index, value) {
-        this.props.onChangeDest({
+    handleRight(event, index, value) {
+        this.props.onChangeRight({
             value: value,
             destDir: event.target.innerHTML
         });
@@ -42,27 +42,26 @@ class MakeHtmlDropDowns extends React.Component {
     }
 
     render() {
-        console.log("MakeHtmlDropDowns render");
-        console.log(this.props.configSummary);
+        console.log("PairedDropDowns render");
 
         return <MuiThemeProvider>
             <div>
                 <DropDownMenu
                     value={this.props.value}
-                    onChange={this.handleSiteDir}
+                    onChange={this.handleLeft}
                     style={styles.customWidth}
                     autoWidth={true}
                 >
-                    {this.renderMenuItems(this.props.configSummary.siteDirs)}
+                    {this.renderMenuItems(this.props.pairArrayLeft)}
                 </DropDownMenu>
 
                 <DropDownMenu
                     value={this.props.value}
-                    onChange={this.handleDestDir}
+                    onChange={this.handleRight}
                     style={styles.customWidth}
                     autoWidth={true}
                 >
-                    {this.renderMenuItems(this.props.configSummary.destinationDirs)}
+                    {this.renderMenuItems(this.props.pairArrayRight)}
                 </DropDownMenu>
             </div>
         </MuiThemeProvider>
@@ -73,4 +72,4 @@ var buttonStyle = {
     margin: '15px'
 };
 
-export default MakeHtmlDropDowns;
+export default PairedDropDowns;

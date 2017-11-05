@@ -13,7 +13,8 @@
       "/node_modules/",
       "ElfDebugEnzyme.js",
       "tiny-pub-sub.js",
-      "temp-poly-fills.js"
+      "temp-poly-fills.js",
+      "setup-jest.js"
     ],
     "setupFiles": [
       "./source/setup-jest.js"

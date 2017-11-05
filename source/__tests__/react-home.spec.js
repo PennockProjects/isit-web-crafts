@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ReactHome from '../ReactHome';
-import HomeButtons from '../HomeButtons';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({adapter: new Adapter()});
@@ -19,7 +18,7 @@ describe('React Home Tests', () => {
     it("renders default value of H1 tag", () => {
         const wrapper = shallow(<ReactHome/>);
 
-        const nineSign = <h1>An H1 element in a React Component</h1>;
+        const nineSign = <h1>Webcraft Home Page</h1>;
         elfDebugEnzyme.getLast(wrapper, 'h1', true);
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
