@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactHome from './ReactHome';
-import MakeHtmlContainer from './container/MakeHtmlContainer';
+import MakeHtml from './MakeHtml';
 
 let homeDiv = null;
 
 function reactMakeHtml(event, customMessage) {
-    ReactDOM.render(<MakeHtmlContainer/>, homeDiv);
+    ReactDOM.render(<MakeHtml/>, homeDiv);
 }
 
 function home() {
