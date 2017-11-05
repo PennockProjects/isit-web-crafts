@@ -33,7 +33,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "isit-code-pennock": "^1.0.1",
-    "isit-site-tools-pennock": "^1.0.3",
+    "isit-site-tools-pennock": "^1.0.4",
     "marked": "~0.3.6",
     "material-ui": "^0.19.4",
     "mongoose": "^4.12.4",

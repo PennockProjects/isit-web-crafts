@@ -3,6 +3,7 @@
         "base-dir": "/home/bcuser/",
         "bootswatch": "cosmo",
         "most-recent-date": "2017-08-14",
+        "highlight": true,
         "site-dirs": [
             "Documents/AllSite",
             "Git/CloudNotes/Isit320"

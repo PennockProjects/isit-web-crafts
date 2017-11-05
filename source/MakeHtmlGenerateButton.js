@@ -2,19 +2,19 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 
-class MakeHtmlHomeButton extends React.Component {
-    constructor() {
-        super();
+const buttonStyle = {
+    margin: '10px 10px 10px 0'
+};
 
-        this.state = {
-            home: 'Go Home'
-        }
+class MakeHtmlGenerateButton extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    goHome() {
-        $.publish('home', {
-            message: "The user wants to go home."
-        });
+    handleClick() {
+        this.props.onClick();
     }
 
     render() {
@@ -24,16 +24,12 @@ class MakeHtmlHomeButton extends React.Component {
                 <RaisedButton
                     style={buttonStyle}
                     primary={true}
-                    onClick={this.goHome}>
-                    {this.state.home}
+                    onClick={this.handleClick}>
+                    Generate HTML
                 </RaisedButton>
             </div>
         </MuiThemeProvider>;
     };
 }
 
-const buttonStyle = {
-    margin: '10px 10px 10px 0'
-};
-
-export default MakeHtmlHomeButton;
+export default MakeHtmlGenerateButton;
