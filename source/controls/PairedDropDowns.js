@@ -52,7 +52,7 @@ class PairedDropDowns extends React.Component {
                     style={styles.customWidth}
                     autoWidth={true}
                 >
-                    {this.renderMenuItems(this.props.pairArrayLeft)}
+                    {this.renderMenuItems(this.props.pairArrayLeft || [])}
                 </DropDownMenu>
 
                 <DropDownMenu
@@ -61,7 +61,7 @@ class PairedDropDowns extends React.Component {
                     style={styles.customWidth}
                     autoWidth={true}
                 >
-                    {this.renderMenuItems(this.props.pairArrayRight)}
+                    {this.renderMenuItems(this.props.pairArrayRight || [])}
                 </DropDownMenu>
             </div>
         </MuiThemeProvider>
