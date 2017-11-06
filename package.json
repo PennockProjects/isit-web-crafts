@@ -3,6 +3,8 @@
   "version": "1.0.1",
   "scripts": {
     "test": "jest --coverage --watch",
+    "lint": "eslint source/**/*.js",
+    "lintFix": "eslint source/**/*.js --fix",
     "karma-test": "karma start",
     "start": "nodemon ./bin/www",
     "buildDev": "node_modules/.bin/webpack --watch"
@@ -59,6 +61,7 @@
     "enzyme-adapter-react-16": "^1.0.2",
     "eslint": "^4.10.0",
     "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-requirejs": "^3.1.1",
     "grunt": "~1.0.1",
     "grunt-contrib-clean": "~1.1.0",
     "grunt-contrib-jade": "~1.0.0",

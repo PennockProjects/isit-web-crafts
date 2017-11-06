@@ -1,20 +1,20 @@
-import React from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import PairedDropDowns from "../controls/PairedDropDowns";
-import MakeHtmlHomeButton from "../MakeHtmlHomeButton";
-import MUIButton from "../controls/MUIButton";
-import PreObjectKeys from "../controls/PreObjectKeys";
+import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import PairedDropDowns from '../controls/PairedDropDowns';
+import MakeHtmlHomeButton from '../MakeHtmlHomeButton';
+import MUIButton from '../controls/MUIButton';
+import PreObjectKeys from '../controls/PreObjectKeys';
 
 class MakeHtmlContainer extends React.Component {
     constructor(props) {
-        console.log("MakeHtmlContainer constructor");
+        console.log('MakeHtmlContainer constructor');
 
         super(props);
     }
 
     render() {
         console.log(
-            "MakeHtmlContainer render stage " + this.props.configLoading
+            'MakeHtmlContainer render stage ' + this.props.configLoading
         );
         if (this.props.configLoading === 1) {
             return <h1>Loading...</h1>;
@@ -34,7 +34,7 @@ class MakeHtmlContainer extends React.Component {
                         />
                         <MUIButton
                             onClick={this.props.generateHtml}
-                            buttonLabel={" Generate Html "}
+                            buttonLabel={' Generate Html '}
                         />
                         <PreObjectKeys
                             loadingStage={this.props.generateHtmlLoading}
@@ -48,9 +48,5 @@ class MakeHtmlContainer extends React.Component {
         }
     }
 }
-
-const buttonStyle = {
-    margin: "10px 10px 10px 0"
-};
 
 export default MakeHtmlContainer;
