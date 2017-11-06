@@ -14,12 +14,12 @@ function home() {
 }
 
 function reactHome() {
-    $("#pageLoad").empty();
+    $('#pageLoad').empty();
     home();
 }
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     homeDiv = document.getElementById('home');
     $.subscribe('reactMakeHtml', reactMakeHtml);
     $.subscribe('home', reactHome);

@@ -36,13 +36,13 @@ class PairedDropDowns extends React.Component {
     renderMenuItems(directoryArray) {
         let menuItemsArray = [];
         for (let i = 0; i < directoryArray.length; i++) {
-            menuItemsArray.push(<MenuItem value={i} key={i} primaryText={directoryArray[i]} />);
+            menuItemsArray.push(<MenuItem value={i} key={i} primaryText={directoryArray[i]}/>);
         }
         return menuItemsArray;
     }
 
     render() {
-        console.log("PairedDropDowns render");
+        console.log('PairedDropDowns render');
 
         return <MuiThemeProvider>
             <div>
@@ -64,7 +64,7 @@ class PairedDropDowns extends React.Component {
                     {this.renderMenuItems(this.props.pairArrayRight || [])}
                 </DropDownMenu>
             </div>
-        </MuiThemeProvider>
+        </MuiThemeProvider>;
     };
 }
 

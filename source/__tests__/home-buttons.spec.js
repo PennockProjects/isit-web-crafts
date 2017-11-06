@@ -5,6 +5,7 @@ import '../../public/javascripts/tools/tiny-pub-sub.js';
 import HomeButtons from '../HomeButtons';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
 configure({adapter: new Adapter()});
 
 
@@ -28,7 +29,7 @@ describe('WebCrafts Home Buttons Test', () => {
         const wrapper = shallow(<HomeButtons/>);
         $.subscribe('clientMakeImage', (event, target) => {
             expect(event.type).toBe('clientMakeImage');
-            expect(target.message).toBe("The user wants to makeImage.");
+            expect(target.message).toBe('The user wants to makeImage.');
             done();
         });
         wrapper.find('#makeImage').simulate('click');

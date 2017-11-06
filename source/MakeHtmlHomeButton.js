@@ -8,12 +8,12 @@ class MakeHtmlHomeButton extends React.Component {
 
         this.state = {
             home: 'Go Home'
-        }
+        };
     }
 
     goHome() {
         $.publish('home', {
-            message: "The user wants to go home."
+            message: 'The user wants to go home.'
         });
     }
 

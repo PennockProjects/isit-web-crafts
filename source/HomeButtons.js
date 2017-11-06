@@ -1,6 +1,7 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
+
 // import {black, red} from 'material-ui/styles/colors';
 
 class HomeButtons extends React.Component {
@@ -16,14 +17,14 @@ class HomeButtons extends React.Component {
 
     makeHtml() {
         $.publish('clientMakeHtml', {
-            message : "The user wants to makeHtml."
+            message: 'The user wants to makeHtml.'
         });
     }
 
 
     makeImage() {
         $.publish('clientMakeImage', {
-            message : "The user wants to makeImage."
+            message: 'The user wants to makeImage.'
         });
     }
 

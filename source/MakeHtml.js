@@ -4,7 +4,7 @@ import MakeHtmlContainer from './container/MakeHtmlContainer';
 class MakeHtml extends React.Component {
 
     constructor(props) {
-        console.log("MakeHtml constructor");
+        console.log('MakeHtml constructor');
 
         super(props);
 
@@ -16,12 +16,12 @@ class MakeHtml extends React.Component {
             destDirs: [],
             configLoading: 1,
             configSummary: {
-                baseDir: "unknown",
+                baseDir: 'unknown',
                 mostRecentDate: new Date(),
                 siteDirs: [],
                 destinationDirs: []
             },
-            htmlFilesWritten:[],
+            htmlFilesWritten: [],
             generateHtmlResult: {},
             generateHtmlLoading: 0,
             value: 1
@@ -43,14 +43,14 @@ class MakeHtml extends React.Component {
      * @property {String} mostRecentDate
      */
     loadConfig() {
-        console.log("MakeHtml loadConfig");
+        console.log('MakeHtml loadConfig');
         const that = this;
         fetch('/makers/config')
             .then(function (response) {
                 return response.json();
             })
             .then(function (configSummary) {
-                console.log("MakeHtml loadConfig...success");
+                console.log('MakeHtml loadConfig...success');
                 console.log('parsed json', JSON.stringify(configSummary, null, 4));
                 that.changeConfigSummary(configSummary);
             })
@@ -64,17 +64,17 @@ class MakeHtml extends React.Component {
     // }
 
     changeConfigSummary(configSummary) {
-        console.log("MakeHtml changeConfigSummary");
+        console.log('MakeHtml changeConfigSummary');
         this.setState({
             configSummary: configSummary,
             configLoading: 2,
             siteDirs: configSummary.siteDirs.slice(),
             destDirs: configSummary.destinationDirs.slice()
-        })
+        });
     }
 
     changeSite(changedSite) {
-        console.log("MakeHtml changeSite");
+        console.log('MakeHtml changeSite');
         this.setState({
             value: changedSite.value,
             generateHtmlLoading: changedSite.value !== this.state.value ? 0 : this.state.generateHtmlLoading,
@@ -84,7 +84,7 @@ class MakeHtml extends React.Component {
     }
 
     changeDest(changedDest) {
-        console.log("MakeHtml changeDest");
+        console.log('MakeHtml changeDest');
         this.setState({
             value: changedDest.value,
             generateHtmlLoading: changedDest.value !== this.state.value ? 0 : this.state.generateHtmlLoading,
@@ -94,16 +94,16 @@ class MakeHtml extends React.Component {
     }
 
     changeGenerateHtmlResult(generateHtmlResult) {
-        console.log("MakeHtml changeGenerateHtmlResult");
+        console.log('MakeHtml changeGenerateHtmlResult');
         this.setState({
             htmlFilesWritten: generateHtmlResult.htmlFilesWritten,
             generateHtmlResult: generateHtmlResult,
             generateHtmlLoading: 2
-        })
+        });
     }
 
     generateHtml() {
-        console.log("MakeHtml generateHtml");
+        console.log('MakeHtml generateHtml');
         this.setState({
             generateHtmlLoading: 1
         });
@@ -113,33 +113,33 @@ class MakeHtml extends React.Component {
         const query = '/makers/walk?siteDirsIndex=' + this.state.value;
         var that = this;
         fetch(query)
-            .then(function(response) {
+            .then(function (response) {
                 return response.json();
             })
-            .then(function(generateHtmlResult) {
-                console.log("MakeHtml generateHtml->success");
+            .then(function (generateHtmlResult) {
+                console.log('MakeHtml generateHtml->success');
                 console.log(JSON.stringify(generateHtmlResult, null, 4));
                 // CALL that.setState to **state.configSummary** to configSummary.htmlFilesWritten
                 that.changeGenerateHtmlResult(generateHtmlResult);
             })
-            .catch(function(ex) {
+            .catch(function (ex) {
                 console.log('parsing failed', ex);
             });
     }
 
     render() {
-        console.log("MakeHtml render");
+        console.log('MakeHtml render');
         return <MakeHtmlContainer
-                    configLoading={this.state.configLoading}
-                    changeSite={this.changeSite}
-                    changeDest={this.changeDest}
-                    siteDirs={this.state.siteDirs}
-                    destDirs={this.state.destDirs}
-                    value={this.state.value}
-                    generateHtml={this.generateHtml}
-                    generateHtmlLoading={this.state.generateHtmlLoading}
-                    generateHtmlResult={this.state.generateHtmlResult}
-                />;
+            configLoading={this.state.configLoading}
+            changeSite={this.changeSite}
+            changeDest={this.changeDest}
+            siteDirs={this.state.siteDirs}
+            destDirs={this.state.destDirs}
+            value={this.state.value}
+            generateHtml={this.generateHtml}
+            generateHtmlLoading={this.state.generateHtmlLoading}
+            generateHtmlResult={this.state.generateHtmlResult}
+        />;
     };
 }
 
