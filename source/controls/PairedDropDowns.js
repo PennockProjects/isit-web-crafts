@@ -1,8 +1,8 @@
-import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
-import 'whatwg-fetch';
+import React from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import DropDownMenu from "material-ui/DropDownMenu";
+import MenuItem from "material-ui/MenuItem";
+import "whatwg-fetch";
 
 const styles = {
     customWidth: {
@@ -43,7 +43,7 @@ class PairedDropDowns extends React.Component {
     }
 
     render() {
-        console.log('PairedDropDowns render');
+        console.log("PairedDropDowns render");
 
         return (
             <MuiThemeProvider>

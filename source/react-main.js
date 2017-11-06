@@ -12,7 +12,7 @@ function reactMakeHtml(event, customMessage) {
 
 function reactMakeImage(event, customMessage) {
     console.log("react-main reactMakeImage");
-    ReactDOM.render(<MakeImage/>, homeDiv);
+    ReactDOM.render(<MakeImage />, homeDiv);
 }
 
 function home() {
@@ -27,7 +27,7 @@ function reactHome() {
 $(document).ready(function() {
     homeDiv = document.getElementById("home");
     $.subscribe("reactMakeHtml", reactMakeHtml);
-    $.subscribe('reactMakeImage', reactMakeImage);
+    $.subscribe("reactMakeImage", reactMakeImage);
     $.subscribe("home", reactHome);
     home();
     //const home = document.getElementById('home');

@@ -1,6 +1,6 @@
-import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
+import React from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import RaisedButton from "material-ui/RaisedButton";
 
 class MUIButton extends React.Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class MUIButton extends React.Component {
 }
 
 const buttonStyle = {
-    margin: '10px 10px 10px 0'
+    margin: "10px 10px 10px 0"
 };
 
 export default MUIButton;
