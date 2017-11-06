@@ -4,7 +4,7 @@
 
 define(['imagePicker'], function(imagePicker) {
     'use strict';
-    
+
     return {
         init: function() {
             $('#pageLoad').load('/makers/pixPicker', function() {

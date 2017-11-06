@@ -1,17 +1,16 @@
-import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
-import 'whatwg-fetch';
+import React from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import DropDownMenu from "material-ui/DropDownMenu";
+import MenuItem from "material-ui/MenuItem";
+import "whatwg-fetch";
 
 const styles = {
     customWidth: {
-        width: 500,
+        width: 500
     }
 };
 
 class PairedDropDowns extends React.Component {
-
     constructor(props) {
         super(props);
 
@@ -22,7 +21,7 @@ class PairedDropDowns extends React.Component {
     handleLeft(event, index, value) {
         this.props.onChangeLeft({
             value: value,
-            siteDir: event.target.innerHTML,
+            siteDir: event.target.innerHTML
         });
     }
 
@@ -36,40 +35,44 @@ class PairedDropDowns extends React.Component {
     renderMenuItems(directoryArray) {
         let menuItemsArray = [];
         for (let i = 0; i < directoryArray.length; i++) {
-            menuItemsArray.push(<MenuItem value={i} key={i} primaryText={directoryArray[i]}/>);
+            menuItemsArray.push(
+                <MenuItem value={i} key={i} primaryText={directoryArray[i]} />
+            );
         }
         return menuItemsArray;
     }
 
     render() {
-        console.log('PairedDropDowns render');
+        console.log("PairedDropDowns render");
 
-        return <MuiThemeProvider>
-            <div>
-                <DropDownMenu
-                    value={this.props.value}
-                    onChange={this.handleLeft}
-                    style={styles.customWidth}
-                    autoWidth={true}
-                >
-                    {this.renderMenuItems(this.props.pairArrayLeft || [])}
-                </DropDownMenu>
+        return (
+            <MuiThemeProvider>
+                <div>
+                    <DropDownMenu
+                        value={this.props.value}
+                        onChange={this.handleLeft}
+                        style={styles.customWidth}
+                        autoWidth={true}
+                    >
+                        {this.renderMenuItems(this.props.pairArrayLeft || [])}
+                    </DropDownMenu>
 
-                <DropDownMenu
-                    value={this.props.value}
-                    onChange={this.handleRight}
-                    style={styles.customWidth}
-                    autoWidth={true}
-                >
-                    {this.renderMenuItems(this.props.pairArrayRight || [])}
-                </DropDownMenu>
-            </div>
-        </MuiThemeProvider>;
-    };
+                    <DropDownMenu
+                        value={this.props.value}
+                        onChange={this.handleRight}
+                        style={styles.customWidth}
+                        autoWidth={true}
+                    >
+                        {this.renderMenuItems(this.props.pairArrayRight || [])}
+                    </DropDownMenu>
+                </div>
+            </MuiThemeProvider>
+        );
+    }
 }
 
 var buttonStyle = {
-    margin: '15px'
+    margin: "15px"
 };
 
 export default PairedDropDowns;

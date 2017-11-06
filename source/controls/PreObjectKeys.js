@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from "react";
 
 class PreObjectKeys extends React.Component {
     constructor(props) {
@@ -9,14 +8,14 @@ class PreObjectKeys extends React.Component {
     }
 
     renderObjectKeys(objectKeys) {
-        return (JSON.stringify(objectKeys, null, 4));
+        return JSON.stringify(objectKeys, null, 4);
         // Object.keys(objectKeys).map(function (key) {
         //     return objectKeys[key]
         // });
     }
 
     render() {
-        console.log('PreObjectKeys render stage ' + this.props.loadingStage);
+        console.log("PreObjectKeys render stage " + this.props.loadingStage);
 
         if (this.props.loadingStage === 1) {
             return <pre>loading....</pre>;
@@ -25,8 +24,7 @@ class PreObjectKeys extends React.Component {
         } else {
             return null;
         }
-    };
+    }
 }
-
 
 export default PreObjectKeys;
