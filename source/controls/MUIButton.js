@@ -17,11 +17,12 @@ class MUIButton extends React.Component {
         return (
             <MuiThemeProvider>
                 <RaisedButton
+                    id={this.props.buttonId || ""}
                     style={buttonStyle}
                     primary={true}
                     onClick={this.handleClick}
                 >
-                    {this.props.buttonLabel}
+                    {this.props.buttonLabel || "default"}
                 </RaisedButton>
             </MuiThemeProvider>
         );

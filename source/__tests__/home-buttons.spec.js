@@ -8,6 +8,7 @@ import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 
 describe("WebCrafts Home Buttons Test", () => {
+
     it("expects true to be true", () => {
         expect(true).toBe(true);
     });

@@ -16,8 +16,6 @@ class MakeImageContainer extends React.Component {
         return (
             <MuiThemeProvider>
                 <div>
-                    <h1>Webcraft Make Image Page</h1>
-
                     <MakeImageHomeButton />
                     <MUIButton
                         onClick={this.props.createImage}

@@ -30,8 +30,6 @@ class MakeHtml extends React.Component {
         this.changeDest = this.changeDest.bind(this);
         this.changeConfigSummary = this.changeConfigSummary.bind(this);
         this.generateHtml = this.generateHtml.bind(this);
-
-        this.loadConfig();
     }
 
     /**
@@ -61,9 +59,10 @@ class MakeHtml extends React.Component {
             });
     }
 
-    // componentDidMount() {
-    //     console.log("MakeHtml componentDidMount");
-    // }
+    componentDidMount() {
+        console.log("MakeHtml componentDidMount");
+        this.loadConfig();
+    }
 
     changeConfigSummary(configSummary) {
         console.log("MakeHtml changeConfigSummary");

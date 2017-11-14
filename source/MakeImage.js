@@ -97,12 +97,15 @@ class MakeImage extends React.Component {
     render() {
         console.log("MakeImage render");
         return (
-            <MakeImageContainer
-                imageOperationStage={this.state.imageOperationStage}
-                createImage={this.createImage}
-                deleteImage={this.deleteImage}
-                imageOperationResult={this.state.imageOperationResult}
-            />
+            <div>
+                <h1>Webcraft Make Image Page</h1>
+                <MakeImageContainer
+                    imageOperationStage={this.state.imageOperationStage}
+                    createImage={this.createImage}
+                    deleteImage={this.deleteImage}
+                    imageOperationResult={this.state.imageOperationResult}
+                />
+            </div>
         );
     }
 }

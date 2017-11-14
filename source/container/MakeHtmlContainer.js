@@ -33,6 +33,7 @@ class MakeHtmlContainer extends React.Component {
                             value={this.props.value}
                         />
                         <MUIButton
+                            id={"fooBar"}
                             onClick={this.props.generateHtml}
                             buttonLabel={" Generate Html "}
                         />

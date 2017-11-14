@@ -48,6 +48,7 @@ class PairedDropDowns extends React.Component {
         return (
             <MuiThemeProvider>
                 <div>
+                    <h1>Pick one</h1>
                     <DropDownMenu
                         value={this.props.value}
                         onChange={this.handleLeft}
