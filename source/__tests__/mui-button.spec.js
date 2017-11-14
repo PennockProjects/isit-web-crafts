@@ -6,21 +6,15 @@ import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
 
-const gotClick = ;
-
 describe("WebCrafts Home Buttons Test", () => {
-
-    it("expects true to be true", () => {
-        expect(true).toBe(true);
-    });
 
     it("MUIButton responds to a click", (done) => {
 
-        const wrapper = shallow(<MUIButton buttonId={"fooButton"} handleClick={function() {
-            console.log("gotClick");
+        const gotClick = (currentSelection) => {
             done();
-        }}
-        />);
+        };
+
+        const wrapper = shallow(<MUIButton buttonId={"fooButton"} onClick={gotClick}  />);
         wrapper.find("#fooButton").simulate("click");
     });
 

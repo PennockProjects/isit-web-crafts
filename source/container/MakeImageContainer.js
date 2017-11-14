@@ -1,6 +1,6 @@
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import MakeImageHomeButton from "../MakeHtmlHomeButton";
+import MakeHtmlHomeButton from "../MakeHtmlHomeButton";
 import MUIButton from "../controls/MUIButton";
 import PreObjectKeys from "../controls/PreObjectKeys";
 
@@ -16,7 +16,7 @@ class MakeImageContainer extends React.Component {
         return (
             <MuiThemeProvider>
                 <div>
-                    <MakeImageHomeButton />
+                    <MakeHtmlHomeButton />
                     <MUIButton
                         onClick={this.props.createImage}
                         buttonLabel={"Create Image"}
