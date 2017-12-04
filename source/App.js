@@ -4,22 +4,14 @@ import {connect} from 'react-redux';
 import ConfigLogin from './ConfigLoginPage';
 import ShowUsers from './ShowUsersPage';
 import ShowUser from './ShowUserPage';
+import MakeHtml from './MakeHtml';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
-//import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
-//import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 import {Toolbar, ToolbarTitle} from 'material-ui/Toolbar'
 
 const paperStyle = {
-    margin: "7%",
-    width: "85%",
-    textAlign: 'center',
-    display: 'inline-block',
-};
-
-const paperStyle1 = {
     width: "85%",
     margin: "7%",
     textAlign: 'center',
@@ -36,6 +28,7 @@ class App extends Component {
         this.handleToggle = this.handleToggle.bind(this);
         this.handleShowLogin = this.handleShowLogin.bind(this);
         this.handleShowUsers = this.handleShowUsers.bind(this);
+        this.handleShowMakeHtml = this.handleShowMakeHtml.bind(this);
     }
 
     handleToggle() {
@@ -60,6 +53,15 @@ class App extends Component {
         });
     }
 
+    handleShowMakeHtml() {
+        this.setState({isOpen: false});
+        this.props.dispatch({
+            type: 'SWITCH_COMPONENT',
+            component: "show_make_html",
+            userIndex: null
+        });
+    }
+
     render() {
         let content = null;
         switch (this.props.component) {
@@ -75,6 +77,10 @@ class App extends Component {
                 content = <ShowUser/>;
                 break;
 
+            case 'show_make_html':
+                content = <MakeHtml/>;
+                break;
+
             default:
                 content = <ConfigLogin/>
 
@@ -84,14 +90,14 @@ class App extends Component {
             <div>
                 <AppBar
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
-                    title="Week11-FireBaseReactServer"
+                    title="Isit 320 Final - Pennock"
                     onLeftIconButtonTouchTap={this.handleToggle}
                 />
 
-                <Paper style={paperStyle1} zDepth={5}>
+                <Paper style={paperStyle} zDepth={5}>
 
                     <Toolbar style={{"justifyContent": "center"}}>
-                        <ToolbarTitle text="Material UI"/>
+                        <ToolbarTitle text={this.props.component}/>
                     </Toolbar>
                     {content}
                 </Paper>
@@ -104,6 +110,7 @@ class App extends Component {
                     <AppBar title="AppBar"/>
                     <MenuItem onClick={this.handleShowLogin}>Show Login</MenuItem>
                     <MenuItem onClick={this.handleShowUsers}>Show Users</MenuItem>
+                    <MenuItem onClick={this.handleShowMakeHtml}>Make HTML</MenuItem>
 
                 </Drawer>
 
