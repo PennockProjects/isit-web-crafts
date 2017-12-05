@@ -22,7 +22,6 @@ class ShowUserPage extends Component {
         let bootswatch = userProps.bootswatch;
         return (
             <div>
-
                 <h1>User: {this.props.userNames[this.props.userIndex]}</h1>
                 <p><strong>baseDir:</strong> {baseDir}</p>
                 <p><strong>bootswatch:</strong> {bootswatch}</p>

@@ -28,8 +28,8 @@ class MakeImageContainer extends React.Component {
                         loadingStage={this.props.imageOperationStage}
                         objectKeys={this.props.imageOperationResult}
                     />
+                    <NavButtons />
                 </div>
-                <NavButtons />
             </MuiThemeProvider>
         );
     }

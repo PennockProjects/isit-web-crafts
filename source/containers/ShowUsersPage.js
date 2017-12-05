@@ -52,14 +52,12 @@ class ShowUsersPage extends Component {
     render() {
         return (
             <div>
-
                 <h1>Users</h1>
                 <p>Click a button to see additional information on a user.</p>
                 <div>
                     {this.createUserButtons(this.props.userNames)}
                 </div>
                 <NavButtons/>
-
             </div>
 
         );

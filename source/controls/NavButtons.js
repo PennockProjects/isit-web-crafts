@@ -111,8 +111,8 @@ class NavButtons extends React.Component {
     render() {
         return (
             <MuiThemeProvider>
-                <hr />
                 <div>
+                    <hr />
                     {this.createGoHomeButton()}
                     {this.createMakeHtmlButton()}
                     {this.createMakeImageButton()}

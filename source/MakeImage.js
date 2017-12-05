@@ -24,33 +24,48 @@ class MakeImage extends React.Component {
         });
 
         let that = this;
-        $.getJSON("/makers/makeImages", function(result) {
-            console.log(JSON.stringify(result, null, 4));
-            that.setState({
-                imageOperationResult: result,
-                imageOperationStage: 2
-            });
-        })
-            .done(function() {
-                console.log(
-                    "MakeImage createImage.done Make Markdown loaded second success"
-                );
+        fetch("/makers/makeImages")
+            .then(function(response) {
+                return response.json();
             })
-            .fail(function(jqxhr, textStatus, error) {
-                console.log(
-                    "MakeImage createImage.Make Markdown load error: " +
-                        jqxhr.status +
-                        " " +
-                        textStatus +
-                        " " +
-                        error
-                );
+            .then(function(result) {
+                console.log(JSON.stringify(result, null, 4));
+                that.setState({
+                    imageOperationResult: result,
+                    imageOperationStage: 2
+                });
             })
-            .always(function() {
-                console.log(
-                    "MakeImage createImage.Make Markdown loaded complete"
-                );
+            .catch(function(ex) {
+                console.log("\"MakeImage createImage.Make Markdown load error", ex);
             });
+
+        // $.getJSON("/makers/makeImages", function(result) {
+        //     console.log(JSON.stringify(result, null, 4));
+        //     that.setState({
+        //         imageOperationResult: result,
+        //         imageOperationStage: 2
+        //     });
+        // })
+        //     .done(function() {
+        //         console.log(
+        //             "MakeImage createImage.done Make Markdown loaded second success"
+        //         );
+        //     })
+        //     .fail(function(jqxhr, textStatus, error) {
+        //         console.log(
+        //             "MakeImage createImage.Make Markdown load error: " +
+        //                 jqxhr.status +
+        //                 " " +
+        //                 textStatus +
+        //                 " " +
+        //                 error
+        //         );
+        //     })
+        //     .always(function() {
+        //         console.log(
+        //             "MakeImage createImage.Make Markdown loaded complete"
+        //         );
+        //     });
     }
 
     deleteImage(changedDest) {
