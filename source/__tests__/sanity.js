@@ -1,30 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import ReactHome from "../ReactHome";
-import HomeButtons from "../HomeButtons";
+import App from "../App";
 import MakeHtml from "../MakeHtml";
 import MakeImage from "../MakeImage";
-import MakeHtmlContainer from "../container/MakeHtmlContainer";
-import MakeImageContainer from "../container/MakeImageContainer";
+import MakeHtmlContainer from "../containers/MakeHtmlContainer";
+import MakeImageContainer from "../containers/MakeImageContainer";
+import NavButtons from "../controls/NavButtons";
 import PairedDropDowns from "../controls/PairedDropDowns";
 import MUIButton from "../controls/MUIButton";
 import PreObjectKeys from "../controls/PreObjectKeys";
-import MakeHtmlHomeButton from "../MakeHtmlHomeButton";
 
 describe("WebCrafts-Pennock Sanity Test", function() {
     it("expects true to be true", () => {
         expect(true).toBe(true);
     });
 
-    it("renders ReactHome without crashing.", () => {
+    it("renders App without crashing.", () => {
         const div = document.createElement("div");
-        ReactDOM.render(<ReactHome />, div);
+        ReactDOM.render(<App />, div);
     });
 
-    it("renders HomeButtons without crashing", () => {
+    it("renders NavButtons without crashing", () => {
         const div = document.createElement("div");
-        ReactDOM.render(<HomeButtons />, div);
+        ReactDOM.render(<NavButtons />, div);
     });
 
     it("renders MakeHtml without crashing", () => {
@@ -67,10 +66,5 @@ describe("WebCrafts-Pennock Sanity Test", function() {
     it("renders MakeImageContainer without crashing", () => {
         const div = document.createElement("div");
         ReactDOM.render(<MakeImageContainer />, div);
-    });
-
-    it("renders MakeHtmlHomeButton without crashing", () => {
-        const div = document.createElement("div");
-        ReactDOM.render(<MakeHtmlHomeButton />, div);
     });
 });

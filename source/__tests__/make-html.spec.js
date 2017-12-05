@@ -6,7 +6,7 @@ import ElfDebugEnzyme from '../ElfDebugEnzyme';
 const elfDebugEnzyme = new ElfDebugEnzyme(true, 'make-html');
 
 import MakeHtml from '../MakeHtml';
-import MakeHtmlContainer from '../container/MakeHtmlContainer';
+import MakeHtmlContainer from '../containers/MakeHtmlContainer';
 
 describe('React Home Tests', () => {
     it('proves that MakeHtmlContainer is part of the MakeHtml page', () => {
