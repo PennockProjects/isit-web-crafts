@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import NavButtons from '../controls/NavButtons';
 import {connect} from 'react-redux';
 import {fetchUsers} from '../actionFireBaseFile';
 
@@ -57,6 +58,7 @@ class ShowUsersPage extends Component {
                 <div>
                     {this.createUserButtons(this.props.userNames)}
                 </div>
+                <NavButtons/>
 
             </div>
 

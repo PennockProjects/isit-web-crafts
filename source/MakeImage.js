@@ -1,5 +1,5 @@
 import React from "react";
-import MakeImageContainer from "./container/MakeImageContainer";
+import MakeImageContainer from "./containers/MakeImageContainer";
 
 class MakeImage extends React.Component {
     constructor(props) {

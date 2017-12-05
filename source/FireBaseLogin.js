@@ -105,7 +105,6 @@ class FireBaseLogin extends Component {
     render() {
         return (
             <div>
-                <p>FireBaseLogin</p>
                 <RaisedButton
                     id="elf-sign-in"
                     label={this.props.signInLabel}

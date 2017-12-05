@@ -1,7 +1,7 @@
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import PairedDropDowns from "../controls/PairedDropDowns";
-import MakeHtmlHomeButton from "../MakeHtmlHomeButton";
+import NavButtons from "../controls/NavButtons";
 import MUIButton from "../controls/MUIButton";
 import PreObjectKeys from "../controls/PreObjectKeys";
 
@@ -22,9 +22,8 @@ class MakeHtmlContainer extends React.Component {
             return (
                 <MuiThemeProvider>
                     <div>
-                        <h1>Webcraft Make Html Page</h1>
+                        <h1>Make Html</h1>
 
-                        <MakeHtmlHomeButton />
                         <PairedDropDowns
                             onChangeLeft={this.props.changeSite}
                             onChangeRight={this.props.changeDest}
@@ -41,6 +40,7 @@ class MakeHtmlContainer extends React.Component {
                             loadingStage={this.props.generateHtmlLoading}
                             objectKeys={this.props.generateHtmlResult}
                         />
+                        <NavButtons />
                     </div>
                 </MuiThemeProvider>
             );

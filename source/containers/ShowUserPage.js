@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import NavButtons from '../controls/NavButtons';
 
 const buttonStyle = {
     margin: '10px 10px 10px 0',
@@ -25,9 +26,8 @@ class ShowUserPage extends Component {
                 <h1>User: {this.props.userNames[this.props.userIndex]}</h1>
                 <p><strong>baseDir:</strong> {baseDir}</p>
                 <p><strong>bootswatch:</strong> {bootswatch}</p>
-
+                <NavButtons/>
             </div>
-
         );
     }
 }

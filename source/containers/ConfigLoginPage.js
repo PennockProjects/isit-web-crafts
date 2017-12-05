@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import FireBaseLogin from "../FireBaseLogin";
 import firebase from 'firebase';
 import {insertConfig} from "../actionFireBaseFile";
+import NavButtons from '../controls/NavButtons';
 
 const buttonStyle = {
     margin: '10px 10px 10px 0'
@@ -42,7 +43,7 @@ class ConfigLoginPage extends Component {
         return (
 
             <div>
-                <p>Config Login Page</p>
+                <h1>FireBase Config and Login</h1>
 
                 <RaisedButton
                     label='Insert Config'
@@ -66,6 +67,7 @@ class ConfigLoginPage extends Component {
                 />
 
                 <FireBaseLogin/>
+                <NavButtons/>
             </div>
 
         );

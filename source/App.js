@@ -5,11 +5,12 @@ import ConfigLogin from './containers/ConfigLoginPage';
 import ShowUsers from './containers/ShowUsersPage';
 import ShowUser from './containers/ShowUserPage';
 import MakeHtml from './MakeHtml';
+import MakeImage from './MakeImage';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Paper from 'material-ui/Paper';
-import {Toolbar, ToolbarTitle} from 'material-ui/Toolbar'
+import {Toolbar, ToolbarTitle} from 'material-ui/Toolbar';
 
 const paperStyle = {
     width: "85%",
@@ -30,6 +31,7 @@ class App extends Component {
         this.handleShowLogin = this.handleShowLogin.bind(this);
         this.handleShowUsers = this.handleShowUsers.bind(this);
         this.handleShowMakeHtml = this.handleShowMakeHtml.bind(this);
+        this.handleShowMakeImage = this.handleShowMakeImage.bind(this);
     }
 
     handleToggle() {
@@ -63,6 +65,15 @@ class App extends Component {
         });
     }
 
+    handleShowMakeImage() {
+        this.setState({isOpen: false});
+        this.props.dispatch({
+            type: 'SWITCH_COMPONENT',
+            component: "show_make_image",
+            userIndex: null
+        });
+    }
+
     render() {
         let content = null;
         switch (this.props.component) {
@@ -80,6 +91,10 @@ class App extends Component {
 
             case 'show_make_html':
                 content = <MakeHtml/>;
+                break;
+
+            case 'show_make_image':
+                content = <MakeImage/>;
                 break;
 
             default:
@@ -112,6 +127,7 @@ class App extends Component {
                     <MenuItem onClick={this.handleShowLogin}>Show Login</MenuItem>
                     <MenuItem onClick={this.handleShowUsers}>Show Users</MenuItem>
                     <MenuItem onClick={this.handleShowMakeHtml}>Make HTML</MenuItem>
+                    <MenuItem onClick={this.handleShowMakeImage}>Make Image</MenuItem>
 
                 </Drawer>
 

@@ -1,19 +1,24 @@
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
+import {connect} from 'react-redux';
 
-class MakeHtmlHomeButton extends React.Component {
+class HomeButton extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            home: "Go Home"
+            home: "Firebase Config and Login"
         };
+
+        this.goHome = this.goHome.bind(this);
     }
 
     goHome() {
-        $.publish("home", {
-            message: "The user wants to go home."
+        this.props.dispatch({
+            type: 'SWITCH_COMPONENT',
+            component: "app",
+            userIndex: null
         });
     }
 
@@ -39,4 +44,6 @@ const buttonStyle = {
     margin: "10px 10px 10px 0"
 };
 
-export default MakeHtmlHomeButton;
+HomeButton = connect()(HomeButton);
+
+export default HomeButton;
