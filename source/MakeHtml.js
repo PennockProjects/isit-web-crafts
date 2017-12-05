@@ -1,5 +1,7 @@
 import React from "react";
-import MakeHtmlContainer from "./container/MakeHtmlContainer";
+import MakeHtmlContainer from "./containers/MakeHtmlContainer";
+import {connect} from 'react-redux';
+import {fetchUserDirs} from "./actionFireBaseFile";
 
 class MakeHtml extends React.Component {
     constructor(props) {
@@ -41,6 +43,7 @@ class MakeHtml extends React.Component {
      */
     loadConfig() {
         console.log("MakeHtml loadConfig");
+        //fetchUserDirs(this.props.dispatch, 'pennock', this.changeConfigSummary);
         const that = this;
         fetch("/makers/config")
             .then(function(response) {
@@ -155,5 +158,21 @@ class MakeHtml extends React.Component {
 const buttonStyle = {
     margin: "10px 10px 10px 0"
 };
+
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.loggedIn,
+        signInLabel: state.signInLabel,
+        configured: state.configured,
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatch: dispatch
+    }
+};
+
+MakeHtml = connect(mapStateToProps, mapDispatchToProps)(MakeHtml);
 
 export default MakeHtml;

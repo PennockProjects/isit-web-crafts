@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import ConfigLogin from './ConfigLoginPage';
-import ShowUsers from './ShowUsersPage';
-import ShowUser from './ShowUserPage';
+import ConfigLogin from './containers/ConfigLoginPage';
+import ShowUsers from './containers/ShowUsersPage';
+import ShowUser from './containers/ShowUserPage';
 import MakeHtml from './MakeHtml';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
@@ -13,7 +13,8 @@ import {Toolbar, ToolbarTitle} from 'material-ui/Toolbar'
 
 const paperStyle = {
     width: "85%",
-    margin: "7%",
+    margin: "20px 7% 0 7%",
+    paddingBottom: "20px",
     textAlign: 'center',
     display: 'inline-block',
 };

@@ -58,6 +58,18 @@ router.get('/config', function(request, response) {
         });
 });
 
+router.get('/getConfig', function (request, response, next) {
+    'use strict';
+    config.useLocalConfig = false;
+    config.loadAsync()
+        .then(function (configuration) {
+            response.send(configuration);
+        })
+        .catch(function (err) {
+            throw err
+        })
+});
+
 // router.get('/config', function(request, response) {
 //     'use strict';
 //     config.useLocalConfig = false;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import {connect} from 'react-redux';
-import {fetchUsers} from './actionFireBase';
+import {fetchUsers} from '../actionFireBaseFile';
 
 const buttonStyle = {
     margin: '10px 10px 10px 0',
@@ -14,8 +14,6 @@ class ShowUsersPage extends Component {
         console.log("ShowUsersPage constructor");
 
         super(props);
-
-        fetchUsers(this.props.dispatch);
 
         this.clickedUserButton = this.clickedUserButton.bind(this);
     }
@@ -41,6 +39,13 @@ class ShowUsersPage extends Component {
 
     createUserButtons (userNames) {
         return userNames.map(this.createUserButton, this);
+    }
+
+
+    componentDidMount() {
+        console.log("ShowUsersPage componentDidMount");
+
+        fetchUsers(this.props.dispatch);
     }
 
     render() {

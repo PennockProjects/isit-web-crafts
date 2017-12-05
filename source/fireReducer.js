@@ -1,4 +1,4 @@
-import { GETTING_USERS, HAVE_USERS } from './actionFireBase';
+import { GETTING_USERS, HAVE_USERS, GETTING_INSERT_CONFIG, HAVE_INSERT_CONFIG } from './actionFireBaseFile';
 
 const initialState = {
     loggedIn: true,
@@ -37,6 +37,16 @@ const fireReducer = (state = initialState, action) => {
                 ...state,
                 userProps: action.userProps,
                 userNames: action.userNames
+            };
+        case GETTING_INSERT_CONFIG:
+            return {
+                ...state
+            };
+
+        case HAVE_INSERT_CONFIG:
+            return {
+                ...state,
+                config: action
             };
         default:
             return state;
