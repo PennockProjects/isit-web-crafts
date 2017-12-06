@@ -133,7 +133,9 @@ export class MakeHtml extends React.Component {
                 that.changeGenerateHtmlResult(generateHtmlResult);
             })
             .catch(function(ex) {
-                console.log("parsing failed", ex);
+                console.log("Error when calling /makers/walk?siteDirsIndex=" + that.state.value);
+                that.changeGenerateHtmlResult(ex);
+                console.log("Error message ", ex);
             });
     }
 
