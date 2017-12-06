@@ -7,7 +7,8 @@
     "lintFix": "eslint source/**/*.js --fix",
     "karma-test": "karma start",
     "start": "nodemon ./bin/www",
-    "buildDev": "node_modules/.bin/webpack --watch"
+    "buildDev": "node_modules/.bin/webpack --watch",
+    "build": "node_modules/.bin/webpack"
   },
   "jest": {
     "verbose": true,
