@@ -60,7 +60,7 @@ router.get('/config', function(request, response) {
 
 router.get('/getConfig', function (request, response, next) {
     'use strict';
-    config.useLocalConfig = false;
+    config.useLocalConfig = true;
     config.loadAsync()
         .then(function (configuration) {
             response.send(configuration);
