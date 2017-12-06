@@ -5,10 +5,10 @@ configure({ adapter: new Adapter() });
 import ElfDebugEnzyme from '../ElfDebugEnzyme';
 const elfDebugEnzyme = new ElfDebugEnzyme(true, 'make-image-container.spec');
 
-import MakeImageContainer from '../container/MakeImageContainer';
-import MakeHtmlHomeButton from '../MakeHtmlHomeButton';
+import MakeImageContainer from '../containers/MakeImageContainer';
 import MUIButton from "../controls/MUIButton";
 import PreObjectKeys from '../controls/PreObjectKeys';
+import NavButtons from '../controls/NavButtons';
 
 describe("WebCrafts MakeImageContainer test", () => {
 
@@ -16,9 +16,9 @@ describe("WebCrafts MakeImageContainer test", () => {
         const wrapper = shallow(<MakeImageContainer />);
 
         const matchingElementsArray = [
-            <MakeHtmlHomeButton />,
             <MUIButton/>,
-            <PreObjectKeys/>
+            <PreObjectKeys/>,
+            <NavButtons/>
         ];
         elfDebugEnzyme.getAll(wrapper, true);
         expect(wrapper.containsAnyMatchingElements(matchingElementsArray));

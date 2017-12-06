@@ -2,7 +2,7 @@ import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import PairedDropDowns from "../controls/PairedDropDowns";
 import NavButtons from "../controls/NavButtons";
-import MUIButton from "../controls/MUIButton";
+import RaisedButton from "material-ui/RaisedButton";
 import PreObjectKeys from "../controls/PreObjectKeys";
 
 class MakeHtmlContainer extends React.Component {
@@ -31,12 +31,16 @@ class MakeHtmlContainer extends React.Component {
                             pairArrayRight={this.props.destDirs}
                             value={this.props.value}
                         />
-                        <MUIButton
-                            id={"fooBar"}
+                        <RaisedButton
+                            id="generate"
+                            style={buttonStyle}
+                            primary={true}
                             onClick={this.props.generateHtml}
-                            buttonLabel={" Generate Html "}
-                        />
+                        >
+                            Generate Html
+                        </RaisedButton>
                         <PreObjectKeys
+                            preId="configSummary"
                             loadingStage={this.props.generateHtmlLoading}
                             objectKeys={this.props.generateHtmlResult}
                         />
@@ -49,5 +53,9 @@ class MakeHtmlContainer extends React.Component {
         }
     }
 }
+
+const buttonStyle = {
+    margin: "10px 10px 10px 0"
+};
 
 export default MakeHtmlContainer;

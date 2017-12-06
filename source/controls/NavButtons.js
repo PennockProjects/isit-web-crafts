@@ -1,9 +1,9 @@
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import RaisedButton from "material-ui/RaisedButton";
+import FlatButton from "material-ui/FlatButton";
 import {connect} from 'react-redux';
 
-class NavButtons extends React.Component {
+export class NavButtons extends React.Component {
     constructor() {
         super();
 
@@ -54,56 +54,56 @@ class NavButtons extends React.Component {
 
     createGoHomeButton() {
         if(this.props.component !== 'app') {
-            return (<RaisedButton
+            return (<FlatButton
                     id="goHome"
                     style={buttonStyle}
                     primary={true}
                     onClick={this.goHome}
                 >
                     {this.state.home}
-                </RaisedButton>
+                </FlatButton>
             );
         }
     }
 
     createMakeHtmlButton() {
         if(this.props.component !== 'show_make_html') {
-            return (<RaisedButton
+            return (<FlatButton
                         id="makeHtml"
                         style={buttonStyle}
                         primary={true}
                         onClick={this.makeHtml}
                     >
                         {this.state.makeHtml}
-                    </RaisedButton>
+                    </FlatButton>
             );
         }
     }
 
     createMakeImageButton() {
         if(this.props.component !== 'show_make_image') {
-            return (<RaisedButton
+            return (<FlatButton
                     id="makeImage"
                     style={buttonStyle}
                     primary={true}
                     onClick={this.makeImage}
                 >
                     {this.state.makeImage}
-                </RaisedButton>
+                </FlatButton>
             );
         }
     }
 
     createShowUsersButton() {
         if(this.props.component !== 'show_users') {
-            return (<RaisedButton
+            return (<FlatButton
                     id="showUsers"
                     style={buttonStyle}
                     primary={true}
                     onClick={this.showUsers}
                 >
                     {this.state.showUsers}
-                </RaisedButton>
+                </FlatButton>
             );
         }
     }
@@ -139,6 +139,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-NavButtons = connect(mapStateToProps, mapDispatchToProps)(NavButtons);
-
-export default NavButtons;
+export default connect(mapStateToProps, mapDispatchToProps)(NavButtons);

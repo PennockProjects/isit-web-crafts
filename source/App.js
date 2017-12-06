@@ -20,7 +20,7 @@ const paperStyle = {
     display: 'inline-block',
 };
 
-class App extends Component {
+export class App extends Component {
     constructor(props) {
         console.log("App constructor");
 
@@ -152,6 +152,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-App = connect(mapStateToProps, mapDispatchToProps)(App);
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

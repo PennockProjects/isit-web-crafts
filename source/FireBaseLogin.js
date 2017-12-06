@@ -45,7 +45,7 @@ class FireBaseLogin extends Component {
         document.getElementById('elf-sign-in').disabled = true;
     }
 
-    elfConfigure = () => {
+    elfConfigure() {
         const config = {
             apiKey: "AIzaSyBoVn6Jt0m9ocp_s2wO6cxtl6dc_6paDRw",
             authDomain: "fir-express-isit320-pennock.firebaseapp.com",
@@ -56,9 +56,9 @@ class FireBaseLogin extends Component {
         };
         firebase.initializeApp(config);
         this.elfSignIn();
-    };
+    }
 
-    elfSignIn = (showLoginStatus) => {
+    elfSignIn(showLoginStatus) {
         const that = this;
         firebase.auth().getRedirectResult().then(function (result) {
             if (result.credential) {
@@ -99,8 +99,7 @@ class FireBaseLogin extends Component {
 
             document.getElementById('elf-sign-in').disabled = false;
         });
-
-    };
+    }
 
     render() {
         return (

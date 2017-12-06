@@ -7,7 +7,7 @@ const buttonStyle = {
     dislay: "inline-block"
 };
 
-class ShowUserPage extends Component {
+export class ShowUserPage extends Component {
 
     constructor(props) {
         console.log("ShowUserPage constructor");
@@ -45,6 +45,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-ShowUserPage = connect(mapStateToProps, mapDispatchToProps)(ShowUserPage);
-
-export default ShowUserPage;
+export default connect(mapStateToProps, mapDispatchToProps)(ShowUserPage);

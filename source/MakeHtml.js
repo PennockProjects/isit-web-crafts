@@ -3,7 +3,7 @@ import MakeHtmlContainer from "./containers/MakeHtmlContainer";
 import {connect} from 'react-redux';
 import {fetchUserDirs} from "./actionFireBaseFile";
 
-class MakeHtml extends React.Component {
+export class MakeHtml extends React.Component {
     constructor(props) {
         console.log("MakeHtml constructor");
 
@@ -173,6 +173,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-MakeHtml = connect(mapStateToProps, mapDispatchToProps)(MakeHtml);
-
-export default MakeHtml;
+export default connect(mapStateToProps, mapDispatchToProps)(MakeHtml);

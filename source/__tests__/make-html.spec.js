@@ -5,7 +5,7 @@ configure({ adapter: new Adapter() });
 import ElfDebugEnzyme from '../ElfDebugEnzyme';
 const elfDebugEnzyme = new ElfDebugEnzyme(true, 'make-html');
 
-import MakeHtml from '../MakeHtml';
+import {MakeHtml} from '../MakeHtml';
 import MakeHtmlContainer from '../containers/MakeHtmlContainer';
 
 describe('React Home Tests', () => {

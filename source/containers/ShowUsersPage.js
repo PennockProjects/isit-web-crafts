@@ -9,7 +9,7 @@ const buttonStyle = {
     dislay: "inline-block"
 };
 
-class ShowUsersPage extends Component {
+export class ShowUsersPage extends Component {
 
     constructor(props) {
         console.log("ShowUsersPage constructor");
@@ -28,41 +28,41 @@ class ShowUsersPage extends Component {
         });
     }
 
-    createUserButton(userName, index, userNames) {
-        return <RaisedButton
-            key={"userNameIndex"+index}
-            label={userName}
-            style={buttonStyle}
-            primary={true}
-            onClick={() => this.clickedUserButton(index)}
-        />;
-    }
+        createUserButton(userName, index, userNames) {
+            return <RaisedButton
+                key={"userNameIndex"+index}
+                label={userName}
+                style={buttonStyle}
+                primary={true}
+                onClick={() => this.clickedUserButton(index)}
+            />;
+        }
 
-    createUserButtons (userNames) {
-        return userNames.map(this.createUserButton, this);
-    }
+        createUserButtons (userNames) {
+            return userNames.map(this.createUserButton, this);
+        }
 
 
-    componentDidMount() {
-        console.log("ShowUsersPage componentDidMount");
+        componentDidMount() {
+            console.log("ShowUsersPage componentDidMount");
 
-        fetchUsers(this.props.dispatch);
-    }
+            fetchUsers(this.props.dispatch);
+        }
 
-    render() {
-        return (
-            <div>
-                <h1>Users</h1>
-                <p>Click a button to see additional information on a user.</p>
+        render() {
+            return (
                 <div>
-                    {this.createUserButtons(this.props.userNames)}
+                    <h1>Users</h1>
+                    <p>Click a button to see additional information on a user.</p>
+                    <div>
+                        {this.createUserButtons(this.props.userNames)}
+                    </div>
+                    <NavButtons/>
                 </div>
-                <NavButtons/>
-            </div>
 
-        );
+            );
+        }
     }
-}
 
 const mapStateToProps = (state) => {
     return {
@@ -77,6 +77,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-ShowUsersPage = connect(mapStateToProps, mapDispatchToProps)(ShowUsersPage);
-
-export default ShowUsersPage;
+export default connect(mapStateToProps, mapDispatchToProps)(ShowUsersPage);

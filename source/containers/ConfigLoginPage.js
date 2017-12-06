@@ -10,7 +10,7 @@ const buttonStyle = {
     margin: '10px 10px 10px 0'
 };
 
-class ConfigLoginPage extends Component {
+export class ConfigLoginPage extends Component {
 
     constructor(props) {
         console.log("ConfigLoginPage constructor");
@@ -88,6 +88,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-ConfigLoginPage = connect(mapStateToProps, mapDispatchToProps)(ConfigLoginPage);
-
-export default ConfigLoginPage;
+export default connect(mapStateToProps, mapDispatchToProps)(ConfigLoginPage);

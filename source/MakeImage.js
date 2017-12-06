@@ -29,7 +29,11 @@ class MakeImage extends React.Component {
                 return response.json();
             })
             .then(function(result) {
-                console.log(JSON.stringify(result, null, 4));
+                if(result.error || !result.success) {
+                    console.log("/makers/makeImages appError")
+                    console.log(result.consoleMessage)
+                    console.log(JSON.stringify(result, null, 4));
+                }
                 that.setState({
                     imageOperationResult: result,
                     imageOperationStage: 2
@@ -76,38 +80,68 @@ class MakeImage extends React.Component {
 
         let that = this;
 
-        $.getJSON("/makers/deleteMarkdown", function(result) {
-            console.log("MakeImage deleteImage" + JSON.stringify(result));
-            that.setState({
-                imageOperationResult: result,
-                imageOperationStage: 4
-            });
-        })
-            .done(function() {
-                console.log(
-                    "MakeImage deleteImage Delete Markdown loaded second success"
-                );
+        fetch("/makers/deleteMarkdown")
+            .then(function (response) {
+                return response.json();
             })
-            .fail(function(jqxhr, textStatus, error) {
+            .then(function (result) {
+                if (result.error || !result.success) {
+                    console.log("/makers/deleteMarkdown appError")
+                    console.log(result.consoleMessage)
+                    console.log(JSON.stringify(result, null, 4));
+                }
+                console.log("/makers/deleteMarkdown result" + JSON.stringify(result));
+                that.setState({
+                    imageOperationResult: result,
+                    imageOperationStage: 4
+                });
+            })
+            .catch(function (ex) {
+                console.log("/makers/deleteMarkdown=>error", ex);
                 var message =
-                    "MakeImage deleteImage Delete Markdown load error: " +
-                    jqxhr.status +
-                    " " +
-                    textStatus +
-                    " " +
-                    error;
+                    "/makers/deleteMarkdown=>error message: " +
+                   ex.message;
                 console.log(message);
                 that.setState({
                     imageOperationResult: message,
                     imageOperationStage: 4
                 });
-            })
-            .always(function() {
-                console.log(
-                    "MakeImage deleteImage Delete Markdown loaded complete"
-                );
+
             });
     }
+
+    //     $.getJSON("/makers/deleteMarkdown", function(result) {
+    //         console.log("MakeImage deleteImage" + JSON.stringify(result));
+    //         that.setState({
+    //             imageOperationResult: result,
+    //             imageOperationStage: 4
+    //         });
+    //     })
+    //         .done(function() {
+    //             console.log(
+    //                 "MakeImage deleteImage Delete Markdown loaded second success"
+    //             );
+    //         })
+    //         .fail(function(jqxhr, textStatus, error) {
+    //             var message =
+    //                 "MakeImage deleteImage Delete Markdown load error: " +
+    //                 jqxhr.status +
+    //                 " " +
+    //                 textStatus +
+    //                 " " +
+    //                 error;
+    //             console.log(message);
+    //             that.setState({
+    //                 imageOperationResult: message,
+    //                 imageOperationStage: 4
+    //             });
+    //         })
+    //         .always(function() {
+    //             console.log(
+    //                 "MakeImage deleteImage Delete Markdown loaded complete"
+    //             );
+    //         });
+    // }
 
     render() {
         console.log("MakeImage render");
