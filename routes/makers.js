@@ -34,7 +34,7 @@ router.get('/pixPicker', function(request, response) {
 
 router.get('/config', function(request, response) {
     'use strict';
-    config.useLocalConfig = false;
+    config.useLocalConfig = true;
     var user = 'calvert';
     config.loadAsync()
         .then(function(configData) {
