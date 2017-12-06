@@ -1,0 +1,12 @@
+[Service]
+ExecStart=/usr/bin/node /home/ubuntu/bin/webcraft/bin/www
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=webcraft
+User=ubuntu
+Group=ubuntu
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
