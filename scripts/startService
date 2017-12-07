@@ -1,0 +1,2 @@
+sudo systemctl enable webcraft
+sudo systemctl start webcraft
