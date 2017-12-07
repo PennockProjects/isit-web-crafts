@@ -34,7 +34,8 @@ router.get('/pixPicker', function(request, response) {
 
 router.get('/config', function(request, response) {
     'use strict';
-    config.useLocalConfig = true;
+    console.log("makers /config start");
+    config.useLocalConfig = false;
     var user = 'calvert';
     config.loadAsync()
         .then(function(configData) {
@@ -61,7 +62,7 @@ router.get('/config', function(request, response) {
 
 router.get('/getConfig', function (request, response, next) {
     'use strict';
-    config.useLocalConfig = true;
+    config.useLocalConfig = false;
     config.loadAsync()
         .then(function (configuration) {
             response.send(configuration);
