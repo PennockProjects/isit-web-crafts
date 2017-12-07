@@ -54,7 +54,8 @@ router.get('/config', function(request, response) {
             response.status(200).send(configSummary);
         })
         .catch(function(err) {
-            throw err;
+            console.log("makers /config error");
+            console.log(err);
         });
 });
 
@@ -66,7 +67,8 @@ router.get('/getConfig', function (request, response, next) {
             response.send(configuration);
         })
         .catch(function (err) {
-            throw err
+            console.log("makers /getConfig error");
+            console.log(err);
         })
 });
 
