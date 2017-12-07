@@ -164,7 +164,8 @@ router.get('/walk', function(request, response) {
             response.send(report);
         })
         .catch(function(err) {
-            throw err;
+            console.log("makers /walk error");
+            console.log(err);
         })
 });
 
